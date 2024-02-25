@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <h3>Tempo para se aposentar</h3>
+    Informe sua idade:
+    <input type="number" id="input_idade"><br><br>
+    <button onclick="aposentaMoco()">Aposentadoria Homem</button>
+    <button onclick="aposentaMoca()">Aposentadoria Mulher</button>  
+</body>
+</html>
+<script>
+    function aposentaMoco(){
+        var idade = Number(input_idade.value)
+        alert(`Faltam ${70 - idade} para você se aposentar!`)
+    }
+    function aposentaMoca(){
+        var idade = Number(input_idade.value)
+        alert(`Faltam ${60 - idade} para você se aposentar!`)
+    }
+</script>

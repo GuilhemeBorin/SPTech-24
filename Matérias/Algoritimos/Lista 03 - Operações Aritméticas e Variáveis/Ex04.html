@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <h2>Calculando Ki de um Sayajin</h2>
+
+    Informe o nome do guerreiro: <br>
+    <input type="text" id="nomeGuerreiro"><br>
+    Informe o Ki normal do guerreiro: <br>
+    <input type="number" id="kiGuerreiro"><br><br>
+
+    <button onclick="calcular()">Ver ki em cada forma</button>
+</body>
+</html>
+<script>
+    function calcular(){
+        var guerreiro = nomeGuerreiro.value
+        var ki = Number(kiGuerreiro.value)
+        var SuperSayajin = Number(50*ki)
+        var SuperSayajin2 = Number(100*ki)
+
+        alert(`${guerreiro} na forma Super Sayajin posssui seu Ki equivalente à ${SuperSayajin}`)
+        alert(`${guerreiro} na forma na forma Super Sayajin 2 posssui seu Ki equivalente à ${SuperSayajin2}`)
+    }
+</script>

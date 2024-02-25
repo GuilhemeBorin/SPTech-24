@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" modified="2024-02-19T19:10:00.429Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 OPR/106.0.0.0" etag="d7Smjb5RoYLrQ-vqx5yN" version="23.1.5" type="onedrive">
+  <diagram name="Página-1" id="a4AN2kUWQUQvklgm1xKS">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JipHVbZSNQpQe3CONmD4-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="JipHVbZSNQpQe3CONmD4-1" target="JipHVbZSNQpQe3CONmD4-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#00FF00;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF4040;" vertex="1" parent="1">
+          <mxGeometry x="220" y="190" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JipHVbZSNQpQe3CONmD4-3" target="JipHVbZSNQpQe3CONmD4-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-3" value="Ler&amp;nbsp;&lt;br&gt;rua/avenida/vila&lt;br&gt;(X)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JipHVbZSNQpQe3CONmD4-5" target="JipHVbZSNQpQe3CONmD4-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-5" value="Ler&amp;nbsp;&lt;br&gt;número da casa&lt;br&gt;(Y)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JipHVbZSNQpQe3CONmD4-8" target="JipHVbZSNQpQe3CONmD4-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-8" value="Usuário clica no botão &lt;br&gt;&quot;Onde moro&quot;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JipHVbZSNQpQe3CONmD4-10" target="JipHVbZSNQpQe3CONmD4-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-10" value="Exibir alerta&lt;br&gt;&amp;nbsp;&quot;Seu logradouro é X&quot;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="JipHVbZSNQpQe3CONmD4-12" target="JipHVbZSNQpQe3CONmD4-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JipHVbZSNQpQe3CONmD4-12" value="Exibir alerta&lt;br&gt;&amp;nbsp;&quot;O número do seu logradouro é Y&quot;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

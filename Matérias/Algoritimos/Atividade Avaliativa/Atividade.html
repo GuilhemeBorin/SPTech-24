@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa</title>
+</head>
+<body>
+    <h3>Calculadora de IMC</h3><br>
+    Informe seu nome completo: <br>
+    <input type="text" id="input_nome"><br>
+    Informe seu Peso(em quilogramas): <br>
+    <input type="number" id="input_peso"><br>
+    Informe sua Altura(em metros): <br>
+    <input type="number" id="input_altura"><br><br>
+
+    <button onclick="calcular()">Calcular</button>
+</body>
+</html>
+<script>
+    function calcular(){
+        //valores antes da conversão 
+        var nome = input_nome.value
+        var peso = Number(input_peso.value) 
+        var altura = Number(input_altura.value) 
+        var imc = Number(peso / (altura * altura))
+
+        //valores após conversão
+        var peso_oz = Number(peso * 35.274)  //1 quilograma equivale a aproximadamente 35.274 onças (oz)
+        var altura_ft = Number(altura * 0.3048)  //1 pé(ft) equivale a 0.3048 metros
+        var imc_2 = Number(peso_oz / (altura_ft * altura_ft))  //imc usando valores já convertidos
+
+        alert (`
+        Nome: ${nome} 
+        IMC: ${imc_2} 
+        Altura(ft): ${altura_ft} ft
+        Peso(oz): ${peso_oz} oz
+        `)
+    }
+</script>
