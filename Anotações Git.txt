@@ -1,0 +1,19 @@
+TOKEN: 30 DIAS
+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
+---------------------------------------------------------------------------------------------
+
+Consultasr usuário configurado:
+git config --global user.name
+git config --global user.email
+
+Configurar novo usuário:
+git config --global user.name 'seu-nome-de-usuario'
+git config --global user.name 'seu-email@sptech.school'
+
+Limpando usuário configurado:
+git config --global --unset user.name
+git config --global --unset user.email
+
+
+*Caso ao executar um comando para consultar um usuário após limpar, significa que não há mais nenhum usuário conectado*
+
