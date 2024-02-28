@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+    Informe o sabor da pizza: <br>
+    <input type="text" id="input_sabor_pizza"><br>
+    Informe o preço da pizza: <br>
+    <input type="number" id="input_preco_pizza"><br>
+    Informe a quantidade de amigos que vão comer: <br>
+    <input type="number" id="input_qtdAmigos"> <br><br>
+    <button onclick="VerValor()">Ver valor por amigo</button><br>
+    <div id="show"></div>
+</body>
+
+</html>
+<script>
+    function VerValor() {
+        var sabor = input_sabor_pizza.value
+        var preco = Number(input_preco_pizza.value)
+        var qtdAmigos = Number(input_qtdAmigos.value)
+        var precoComCaixinha = (preco / 0.1)
+        var calculo = (precoComCaixinha / qtdAmigos)
+
+        show.innerHTML = `Cada amigo vai colaborar com R$${calculo} para a pizza de ${sabor}`
+    }
+</script>
