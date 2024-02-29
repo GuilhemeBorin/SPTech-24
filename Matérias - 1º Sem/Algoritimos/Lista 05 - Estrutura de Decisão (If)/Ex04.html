@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+    Informe o valor da pizza: <br>
+    <input type="number" id="input_valorPizza"><br>
+    Informe a quantidade de amigos reunidos: <br>
+    <input type="number" id="input_qtdAmigos"><br>
+    <button onclick="Pizza()">Rola a pizza?</button><br>
+    <div id="show"></div>
+</body>
+
+</html>
+<script>
+    function Pizza() {
+        var valorPizza = Number(input_valorPizza.value)
+        var qtdAmigo = Number(input_qtdAmigos.value)
+        var valorAPagar = valorPizza / qtdAmigo
+
+        show.innerHTML = `Cada amigo vai pagar R$${valorAPagar} pela pizza`
+
+        if (valorAPagar > 20) {
+            alert(`Deu ruim! Pizza muito cara!`)
+        }
+    }
+</script>

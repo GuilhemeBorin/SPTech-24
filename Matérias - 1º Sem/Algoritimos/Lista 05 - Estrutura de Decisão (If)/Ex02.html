@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+
+<body>
+    Informe quantas latinhas de refrigerante toma por dia: <br>
+    <input type="number" id="input_latinhas"><br>
+    <button onclick="qtdRrefris()">Quantos refris?</button><br>
+    <div id="show"></div>
+</body>
+
+</html>
+<script>
+    function qtdRrefris() {
+        var refrigerantePorDia = Number(input_latinhas.value)
+        var LatinhasPorAno = refrigerantePorDia * 365
+
+        show.innerHTML = `Joka bebe ${LatinhasPorAno} latinhas de refrigerante por ano`
+
+        if (refrigerantePorDia >= 500) {
+            alert(`Cuidado com a diabetes!`)
+        }
+    }
+</script>
