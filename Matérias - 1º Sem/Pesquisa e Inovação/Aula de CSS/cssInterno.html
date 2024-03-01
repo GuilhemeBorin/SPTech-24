@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS INTERNO</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .card {
+            width: 500px;
+            height: fit-content;
+            border: 3px solid black;
+            border-radius: 25px;
+            background-color: aliceblue;
+            margin: 10px;
+        }
+
+        .card-imagem {
+            width: 100px;
+            border-radius: 0%;
+        }
+
+        .card-image img {
+            width: 70%; 
+            height: 70%
+        }
+        .card-titulo {
+            font-size: 35px;
+        }
+        .card-titulo .card-titulo-nome {
+            color: cadetblue;
+        }
+        .cad-span{
+            font-style: italic;
+            font-weight: bold; 
+            color: #b11a1a
+        }
+
+    </style>
+</head>
+
+<body style="margin: 0;">
+    <div class="card">
+        <div class="card-imagem">
+            <img src="https://cdn-icons-png.flaticon.com/512/706/706830.png">
+        </div>
+        <div>
+            <h1 class="card-titulo"><span>Meu nome:<span class="card-titulo-nome">Adriana</span></span></h1>
+            <p class="card-mensagem">Mensagem:<span>a vida não é um morango! E ta tudo bem!</span></p>
+        </div>
+    </div>
+</body>
+
+<body style="margin: 0;">
+    <div class="card">
+        <div class="card-imagem">
+            <img src="https://cdn-icons-png.flaticon.com/512/706/706830.png">
+        </div>
+        <div>
+            <h1 class="card-titulo"><span>Meu nome:<span class="card-titulo-nome">Fábio</span></span></h1>
+            <p class="card-mensagem">Mensagem:<span>Ser ou não ser, eis a questãoS</span></p>
+        </div>
+    </div>
+</body>
+
+</html>

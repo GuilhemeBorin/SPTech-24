@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+.card {
+    width: 500px;
+    height: fit-content;
+    border: 3px solid black;
+    border-radius: 25px;
+    background-color: aliceblue;
+    margin: 10px;
+}
+
+.card-imagem {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.card-image img {
+    width: 70%;
+    height: 70%
+}
+
+.card-titulo {
+    font-size: 35px;
+}
+
+.card-titulo .card-titulo-nome {
+    color: cadetblue;
+}
+
+.cad-span {
+    font-style: italic;
+    font-weight: bold;
+    color: #b11a1a
+}
