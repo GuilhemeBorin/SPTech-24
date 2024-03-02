@@ -1,6 +1,3 @@
-TOKEN: 30 DIAS
-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
----------------------------------------------------------------------------------------------
 
 Consultasr usuário configurado:
 git config --global user.name
