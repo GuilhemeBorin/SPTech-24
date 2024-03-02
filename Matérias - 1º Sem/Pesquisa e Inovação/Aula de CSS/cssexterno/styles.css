@@ -16,9 +16,9 @@ body {
     border-radius: 50%;
 }
 
-.card-image img {
+.card-imagem img {
     width: 70%;
-    height: 70%
+    height: 70%;
 }
 
 .card-titulo {
@@ -29,8 +29,8 @@ body {
     color: cadetblue;
 }
 
-.cad-span {
+.card-span {
     font-style: italic;
     font-weight: bold;
-    color: #b11a1a
+    color: #b11a1a;
 }
