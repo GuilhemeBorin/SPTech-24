@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    Informe a quantidade de chocolates comprados:
+    <input type="text" id="input_qtdChocolatesComprados"><br>
+    <button onclick="Comprar()">Compra</button>
+</body>
+
+</html>
+<script>
+    // qualquer chocolate custa R$ 3,00 cada e se a compra for acima de uma dúzia de chocolates o preço cai para R$ 2,50 cada um. 
+    function Comprar() {
+        var qtdChocolates = Number(input_qtdChocolatesComprados.value)
+        var preçoNormal = qtdChocolates * 3
+        var valorPromocional = qtdChocolates * 2.5
+
+        if (qtdChocolates > 12) {
+            alert(`o valor da sua compra foi de ${valorPromocional}`)
+        } else {
+            alert(`o valor da sua compra foi de ${preçoNormal}`)
+        }
+    }
+</script>
