@@ -7,24 +7,23 @@
 </head>
 <body>
     Informe a temperatura do ambiente: 
-    <input type="number" id="input_nota1"><br>
-    Informe o valor da nota 2: 
-    <input type="number" id="input_nota2"><br>
-    <button onclick="Verificar()">Verificar situação</button>
+    <input type="number" id="input_temperatura"><br>
+    <button onclick="Verificar()">Verificar clima</button>
     <div id="show"></div> 
 </body>
 
 </html>
 <script>
-    function Verificar() {
-        var nota1 = Number(input_nota1.value)
-        var nota2 = Number(input_nota2.value)
-        var media = (nota1 + nota2) / 2
+function Verificar(){
+    temperatura = Number(input_temperatura.value)
+    apropriada = temperatura < 10
+    inapropriada = temperatura >= 10 
 
-        if (media > 6) {
-            show.innerHTML = `Parabéns, aprovado!`
-        } else {
-            show.innerHTML = `Tente outra vez...`
-        }
+    if(temperatura < 10){
+        show.innerHTML = `<img src="https://cdn.pixabay.com/photo/2016/09/17/18/53/vine-1676756_640.jpg">`
+    }else{
+        show.innerHTML = `<img src="https://cdn.pixabay.com/photo/2016/03/05/19/11/age-1238304_1280.jpg">`
+
     }
+}
 </script>
