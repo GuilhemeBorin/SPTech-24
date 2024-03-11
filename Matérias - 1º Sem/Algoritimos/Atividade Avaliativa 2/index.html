@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa 2</title>
+</head>
+
+<body>
+    <h1>Jorge virou CLT</h1>
+    Informe o valor do salário:
+    <input id="input_valorSalario"> <br>
+    Informe o valor adicional mensal:
+    <input id="input_adicionalMensal"> <br>
+    Informe o valor do bônus:
+    <input id="input_valorBonus"><br>
+
+    <button onclick="Analisar()">Analisar Minha Renda</button>
+
+    <div id="show"></div><br>
+</body>
+
+</html>
+<script>
+    function Analisar() {
+        var salario = Number(input_valorSalario.value)
+        var adicionalMensal = Number(input_adicionalMensal.value)
+        var bonus = Number(input_valorBonus.value)
+
+        var salarioBruto = salario + adicionalMensal + bonus
+
+        //Variáveis se iniciam em zero, pois recebem valor somente dentro da condição
+        var descontoIR = 0
+        var descontoINSS = 0
+        var descontoFGTS = 0
+        var salarioLiquido = 0
+
+        if (salarioBruto >= 10000) {
+            descontoIR = salarioBruto * 0.125
+            salarioLiquido = salarioBruto - descontoIR; //Salário Liquido equivale ao salario Bruto COM o  o descontoIR
+
+        } else {
+            salarioLiquido = salarioBruto; //Salário Liquido equivale ao salario Bruto SEM o descontoIR
+        }
+
+        descontoINSS = salarioLiquido * 0.1;   //10% do valor do salário bruto após a verificação do desconto de IR
+        descontoFGTS = salarioLiquido * 0.08;  //8% do valor do salário bruto após a verificação do desconto de IR
+
+        salarioLiquido = salarioLiquido - (descontoINSS + descontoFGTS); //Salário bruto menos os descontos aplicados
+
+
+        show.innerHTML = 
+        ` 
+            <h3><b>Análise da sua renda</b></h3>
+
+            Com o salário de R$<b>${salario}</b>, com adicional de R$<b>${adicionalMensal}</b> e bônus de R$<b>${bonus}</b>, você tem:  <br><br>
+            Bruto: R$<b>${salarioBruto}</b>  <br>
+            IR: R$<b>${descontoIR}</b>  <br>
+            INSS: R$<b>${descontoINSS}</b>  <br>
+            FGTS: R$<b>${descontoFGTS}</b> <br>
+            Líquido: R$<b>${salarioLiquido}</b> <br><br>
+        `
+
+        if (salarioLiquido > 2500) {
+            show.innerHTML += 
+            `
+            Com a renda de R$<b>${salarioLiquido}</b>, é recomendado poupar R$<b>${salarioLiquido * 0.15}</b>, para que em um ano tenha poupado R$<b>${(salarioLiquido * 0.15) * 12}</b>
+            `
+        } else {
+            show.innerHTML += 
+            `
+            Com a renda de R$<b>${salarioLiquido}</b>, é recomendado obter renda extra para realizar uma poupança.
+            `
+        }
+    }
+</script>
