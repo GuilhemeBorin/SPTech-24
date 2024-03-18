@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    Informe uma temperatura: 
+    <input type="number" id="input_temperatura"><br>
+    Para o ser humano, a temperatura é... <br>
+    <button onclick="Analisar()">Analisar Temperatura</button>
+    <div id="show"></div>
+</body>
+</html>
+<script>
+    function Analisar(){
+        let temperatura = Number(input_temperatura.value)
+
+        if (temperatura < 14){
+            show.innerHTML = `Congelante`
+        } else if(temperatura <= 21){
+            show.innerHTML = `Com Frio`
+        } else if(temperatura <= 24){
+            show.innerHTML = `Confortável`
+        } else if(temperatura <= 31){
+            show.innerHTML = `Com Calor`
+        } else {
+            show.innerHTML = `Calor escaldante`
+        }
+    }
+</script>

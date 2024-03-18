@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    Informe a renda familiar mensal: 
+    <input type="number" id="input_rendaFamiliar"><br>
+    <button onclick="Analisar()">Analisar Renda</button>
+    <div id="show"></div>
+</body>
+</html>
+<script>
+    function Analisar(){
+        let renda = Number(input_rendaFamiliar.value)
+
+        if (renda <= 250){
+            show.innerHTML = `Classe E`
+        } else if(renda <= 900){
+            show.innerHTML = `Classe D`
+        } else if(renda <= 2500){
+            show.innerHTML = `Classe C`
+        } else if(renda <= 9500){
+            show.innerHTML = `Classe B`
+        } else {
+            show.innerHTML = `Classe A`
+        }
+    }
+</script>
