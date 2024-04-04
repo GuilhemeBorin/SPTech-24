@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11 (E)</title>
+</head>
+
+<body>
+    Informe a quantidade de passagens que deseja adquirir:
+    <input type="number" id="input_qtdPassagens"><br><br>
+    <button onclick="compre()">Comprar</button>
+    <div id="show"></div>
+</body>
+
+</html>
+<script>
+    function compre() {
+        let passagem = Number(input_qtdPassagens.value) //quantidade de passagem
+        let valorPassagem = passagem * 4.40 //valor de cada passagem
+        
+        if (passagem >= 8 && passagem <= 50) {
+            if(passagem >= 8 && passagem <= 19){
+                valorPassagem -= valorPassagem * 0.03 //usar "-=" significa que estou retirando do valor original
+                show.innerHTML = `Total a pagar: R$${valorPassagem}`
+            }else if(passagem >= 20 && passagem <= 49){
+                valorPassagem -= valorPassagem * 0.05
+                show.innerHTML = `Total a pagar: R$${valorPassagem}`
+            }else if(passagem === 50){
+                valorPassagem -= valorPassagem * 0.07
+                show.innerHTML = `Total a pagar: R$${valorPassagem}`
+            } 
+        } else {
+            alert(`Quantidade inválida para o Fidelidade`)
+        }
+    }
+</script>

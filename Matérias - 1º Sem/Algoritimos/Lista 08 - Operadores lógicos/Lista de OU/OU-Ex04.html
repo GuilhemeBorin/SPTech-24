@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4 (OU)</title>
+</head>
+
+<body>
+    Informe a temperatura atual:
+    <input type="number" id="input_tempAtual"><br><br>
+    <button onclick="Analisar()">Analisar clima</button>
+
+</body>
+
+</html>
+<script>
+    function Analisar() {
+        let tempAtual = Number(input_tempAtual.value)
+
+        if (tempAtual <= 20 || tempAtual >= 25) {
+            alert("Alerta de desconforto!")
+
+            if (tempAtual < 21) {
+                alert("As pessoas vão ter hipotermia")
+            } else if (tempAtual > 24) {
+                alert("As pessoas vão derreter")
+            }
+        }
+    }
+</script>

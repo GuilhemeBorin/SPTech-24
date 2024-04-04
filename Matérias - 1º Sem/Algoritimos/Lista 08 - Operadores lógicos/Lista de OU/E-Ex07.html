@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7 (E)</title>
+</head>
+
+<body>
+    Informe o login:
+    <input type="text" id="input_loginUsuario"><br>
+    Informe a senha:
+    <input type="text" id="input_senhaUsuario"><br><br>
+    <button onclick="logar()">Entrar</button>
+</body>
+
+</html>
+<script>
+    function logar() {
+        let login = input_loginUsuario.value
+        let senha = input_senhaUsuario.value
+
+        if (login == 'SPTech' && senha == 'digital') {
+            alert(`Usuário autenticado com sucessos`)
+        } else{
+            alert(`Falha na autenticação`)
+        }
+    }
+</script>

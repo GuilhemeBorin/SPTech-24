@@ -1,0 +1,13 @@
+ao entrar no mysql como admin
+
+sair da System32
+
+-------------------------------
+entrar no cmd
+
+= = = = = = = = = = = = = = = =
+cd\program files\mysql\mysql server 8.0\bin
+
+mysql -u root -h localhost -p
+
+(Inserir Senha)

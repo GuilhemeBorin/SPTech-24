@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5 (E)</title>
+</head>
+
+<body>
+    Informe a nota do aluno:
+    <input type="number" id="input_notaAluno"><br><br>
+    <button onclick="avaliar()">Avaliar aluno</button>
+</body>-
+
+</html>
+<script>
+    function avaliar() {
+        let nota = Number(input_notaAluno.value)
+
+        if (nota >= 8.5 && nota <= 10) {
+            alert(`Aluno Exemplar`)
+        } else if(nota >= 6 && nota <= 8.5){
+            alert(`Aluno comum e aprovado`)
+        }else{
+            alert(`Aluno não aprovado`)
+        }
+    }
+</script>

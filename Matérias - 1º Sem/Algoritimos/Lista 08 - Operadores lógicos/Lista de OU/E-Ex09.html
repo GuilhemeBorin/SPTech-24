@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9 (E)</title>
+</head>
+
+<body>
+    <!-- A altura inicial tem que ser maior que 1 e a altura final tem que ser maior que a altura inicial, caso contrário emitir mensagem de alerta E NÃO SEGUIR EM FRENTE.  -->
+    Informe o intervalo da altura desejada para os próximos pilotos: <br>
+    Intervalo Inicial:
+    <input type="number" id="input_intervaloInicialAltura"><br>
+    Intervalo Final:
+    <input type="number" id="input_intervaloFinalAltura"><br>
+    Informe o nome:
+    <input type="text" id="input_nomePiloto"><br>
+    Informe a altura:
+    <input type="number" id="input_alturaPiloto"><br><br>
+    <button onclick="resultado()">Calcular</button>
+    <div id="show"></div>
+</body>
+
+</html>
+<script>
+    function resultado() {
+        let intervaloInicial = Number(input_intervaloInicialAltura.value)
+        let intervaloFinal = Number(input_intervaloFinalAltura.value)
+        let nome = input_nomePiloto.value
+        let altura = Number(input_alturaPiloto.value)
+
+        let intervaloValido = intervaloInicial > 1 && intervaloFinal > intervaloInicial
+
+        if (intervaloValido) {
+            let alturaCandidatoValida = altura >= intervaloInicial && altura <= intervaloFinal
+            if (alturaCandidatoValida) {
+                show.innerHTML += `O candidato ${nome} com altura de ${altura} participará do processo de seleção de piloto<br>`
+            } else {
+                show.innerHTML += `Infelizmente o candidato ${nome} com altura de ${altura} não atende os requisitos<br>`
+            }
+        } else {
+            alert("Valor incorreto para avaliação !");
+        }
+    }
+</script>

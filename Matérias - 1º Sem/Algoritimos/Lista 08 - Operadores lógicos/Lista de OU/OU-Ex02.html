@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 (OU)</title>
+</head>
+
+<body>
+    Informe o valor da renda individual:
+    <input type="number" id="input_rendaIndividual"><br>
+    Informe o valor da renda familiar:
+    <input type="number" id="input_rendaFamiliar"><br><br>
+    <button onclick="Benefício()">Terei o benefício</button>
+</body>
+
+</html>
+<script>
+    function Benefício() {
+        let rendaIndividual = Number(input_rendaIndividual.value)
+        let rendaFamiliar = Number(input_rendaFamiliar.value)
+
+        if (rendaIndividual <= 2000 || rendaFamiliar <= 3000) {
+            alert("Você terá direito ao auxílio")
+        } else {
+            alert("Sem direito ao auxílio")
+        }
+    }
+</script>

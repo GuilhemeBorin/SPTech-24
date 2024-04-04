@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1 (OU)</title>
+</head>
+
+<body>
+    Informe a nota do ENEM:
+    <input type="number" id="input_notaENEM"><br>
+    Informe a nota do vestibular interno do aluno
+    <input type="number" id="input_notaVestibular"><br><br>
+    <button onclick="avaliar()">Avaliação</button>
+</body>
+
+</html>
+<script>
+    function avaliar() {
+        let notaENEM = Number(input_notaENEM.value)
+        let notaVestibular = Number(input_notaVestibular.value)
+
+        if (notaENEM >= 800 || notaVestibular >= 700) {
+            alert("Parabéns! Aprovado")
+        } else {
+            alert("Tente semestre que vem")
+        }
+    }
+</script>
