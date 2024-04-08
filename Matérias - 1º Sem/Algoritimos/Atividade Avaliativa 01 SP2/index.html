@@ -1,137 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atividade Avaliativa 1 (SP2)</title>
 </head>
-<style>
-    .hidden {
-    display: none;
-}
-</style>
+
 <body>
-    <span id="TELA1">
-    <h1>Seja bem vindo ao Banco KNAB</h1>
-    <h3>Simulção de Emprestimos e Investimentos</h3>
+    <div id="TELA1" style="display: block;">
+        <h1>Seja bem vindo ao Banco KNAB</h1>
+        <h3>Simulção de Emprestimos e Investimentos</h3>
 
-    <b>Entre com os dados da sua conta:</b> <br><br>
-    <input type="number" id="input_conta" placeholder="Conta">
-    <input type="number" id="input_digito" placeholder="Digito">
-    <input type="text" id="input_senha" placeholder="Senha">
-    <br><br>
-    <button onclick="simule()">Simular</button>
-    <div id="show"></div>
-    </span>
+        <b>Entre com os dados da sua conta:</b> <br><br>
+        <input type="number" id="input_conta" placeholder="Conta">
+        <input type="number" id="input_digito" placeholder="Digito">
+        <input type="text" id="input_senha" placeholder="Senha">
+        <br><br>
+        <button onclick="simule()">Simular</button>
+    </div>
     <!-------------------TELA 2------------------->
-    <span id="TELA2">
-    <h1>O Banco KNAB é a sua melhor opção</h1>
-    <h3>Emprestimos e Investimentos com as melhores taxas do mercado</h3>
+    <div id="TELA2" style="display: none;">
+        <h1>O Banco KNAB é a sua melhor opção</h1>
+        <h3>Emprestimos e Investimentos com as melhores taxas do mercado</h3>
 
-    <b>Entre com os dados da sua simulação</b> <br><br>
-    Valor da Operação:
-    <input type="number" id="input_valor" placeholder="valor">
+        <b>Entre com os dados da sua simulação</b> <br><br>
+        Valor da Operação:
+        <input type="number" id="input_valor" placeholder="valor">
 
-    <select id="selecioneOperacao">
-        <option value="emprestimo">Empréstimo</option>
-        <option value="investimento">Investimento</option>
-    </select>
+        <select id="selecioneOperacao">
+            <option value="">Selecione a Operação</option>
+            <option value="emprestimo">Empréstimo</option>
+            <option value="investimento">Investimento</option>
+        </select>
 
-    <select id="selecionePrazo">
-        <option value="curto">Curto</option>
-        <option value="medio">Médio</option>
-        <option value="longo">Longo</option>
-    </select>
-    <br><br>
-    <button onclick="Mostre()">Mostrar o Resultado</button>
-    <br><br>
-    <button onclick="Voltar()">Voltar à Simulação</button>
-    <div id="show"></div>
-    </span>
+        <select id="selecionePrazo">
+            <option value="">Selecione a Operação</option>
+            <option value="curto">Curto</option>
+            <option value="medio">Médio</option>
+            <option value="longo">Longo</option>
+        </select>
+        <br><br>
+        <button onclick="Mostre()">Mostrar o Resultado</button>
+        <br><br>
+        <button onclick="Volte()" id="btnDoVolta" style="display: none">Voltar à Simulação</button>
+        <br><br>
+        <div id="show"></div>
+    </div>
 </body>
+
 </html>
 <script>
-    function simule(){
+    let SimulacaoNumero = 1
+
+    function simule() {
         let conta = Number(input_conta.value)
         let digito = Number(input_digito.value)
         let senha = input_senha.value
 
+        let manaus = senha.indexOf("Manaus")
+        let recife = senha.indexOf("Recife")
+        let fortaleza = senha.indexOf("Fortaleza")
+
+        let Arroba = senha.indexOf("@")
+        let Hash = senha.indexOf("#")
+        let numZero = senha.indexOf("0")
+        let numUm = senha.indexOf("1")
+        let numDois = senha.indexOf("2")
+        let numTres = senha.indexOf("3")
+        let numQuatro = senha.indexOf("4")
+        let numCinco = senha.indexOf("5")
+        let numSeis = senha.indexOf("6")
+        let numSete = senha.indexOf("7")
+        let numOito = senha.indexOf("8")
+        let numNove = senha.indexOf("9")
+
         let resto = conta % 10;
-        if(digito !== resto) {
-        alert("O dígito não corresponde ao resto da divisão da conta por 10.")
-        } 
-        
-        if(digito >= 0 && digito <= 3){
-            let senha = senha + "manaus"
-        }else if(digito >= 4 && digito <= 7){
-            let senha = senha + "recife"
-        }else{
-            let senha = senha + "fortaleza"
-        }
 
-        const arroba = senha.indexOf("@");
-        const Hash = senha.indexOf("#")
-        if (arroba == -1 && Hash == -1) {
-        alert(`"Sua senha deve conter  '@' ou '#'"`)
+        if (digito > 0) {
+            if (digito !== resto) {
+                alert("O dígito não corresponde ao resto da divisão da conta por 10.")
+
+            } else if (Arroba == -1 && Hash == -1) {
+                alert(`"Sua senha deve conter  '@' ou '#'"`)
+            } else if (numZero == -1 && numUm == -1 && numDois == -1 && numTres == -1 && numQuatro == -1 && numCinco == -1 && numSeis == -1 && numSete == -1 && numOito == -1 && numNove == -1) {
+                alert(`Por favor, insira um número`)
+            } else if (senha.length < 10) {
+                alert(`Sua senha deve conter no mínimo 10 digitos`)
+            }
+
         } else {
-            show.innerHTML = arroba
-            show.innerHTML = Hash
+            alert(`Digito deve ser maior que 0`)
         }
-
+        if (digito >= 0 && digito <= 3) {
+            if (manaus == -1) {
+                alert(`A senha deve conter Manaus`)
+            } else {
+                TELA1.style.display = 'none';
+                TELA2.style.display = 'block';
+            }
+        } else if (digito >= 4 && digito <= 7) {
+            if (recife == -1) {
+                alert(`A senha deve conter Recife`)
+            } else {
+                TELA1.style.display = 'none';
+                TELA2.style.display = 'block';
+            }
+        } if (digito >= 7) {
+            if (recife == -1) {
+                alert(`A senha deve conter Fortaleza`)
+            } else {
+                TELA1.style.display = 'none';
+                TELA2.style.display = 'block';
+            }
+        }
     }
 
-    function Mostre(){
+
+    function Mostre() {
         let valor = Number(input_valor.value)
         let operacao = selecioneOperacao.value
         let prazo = selecionePrazo.value
 
-        let prazoVal = valor * 0.10
+        let prazoVal = valor * 0.1
         let valorJur = valor + prazoVal
 
-        if(prazo == 'curto' || 'medio'){
+        if (operacao == '' && prazo == '') {
+            alert(`Selecione opções em ambos os campos`)
+        } else if (prazo == 'curto' || 'medio') {
             alert(`Esta operação está condicionada ao seu perfil`)
         }
 
-        if(operacao == 'emprestimo'){
-            if(prazo == 'curto'){
+        if (operacao == 'emprestimo') {
+            if (prazo == 'curto') {
                 let prazoVal = valor * 0.24
-                let valorJur = valor + prazoVal 
-            }else if(prazo == 'medio'){
+            } else if (prazo == 'medio') {
                 let prazoVal = valor * 0.16
-                let valorJur = valor + prazoVal 
-            }else if(prazo == 'longo'){
+            } else if (prazo == 'longo') {
                 let prazoVal = valor * 0.10
-                let valorJur = valor + prazoVal 
             }
-            show.innerHtml = `Simulação XX – Para o empréstimo de R$${valor} no ${prazo} prazo será cobrado os juros de ${valorJur}`
+            show.innerHTML += `Simulação <b>${SimulacaoNumero}</b> – Para o empréstimo de <b>$${valor}</b> no <b>${prazo}</b> prazo será cobrado os juros de <b>${valorJur}</b> ao ano <br>`
+            SimulacaoNumero += 1;
         }
 
-        if(operacao == 'investimento'){
-            if(prazo == 'curto'){
+        if (operacao == 'investimento') {
+            if (prazo == 'curto') {
                 let prazoVal = valor * 0.05
-                let valorInv = valor + prazoVal 
-            }else if(prazo == 'medio'){
+            } else if (prazo == 'medio') {
                 let prazoVal = valor * 0.08
-                let valorInv = valor + prazoVal 
-            }else if(prazo == 'longo'){
+            } else if (prazo == 'longo') {
                 let prazoVal = valor * 0.12
-                let valorInv = valor + prazoVal 
             }
-            show.innerHtml = `Simulação XX – Para o empréstimo de R$${valor} no ${prazo} prazo será cobrado os juros de R$ ${valorInv} ao ano`
+            show.innerHTML += `Simulação <b>${SimulacaoNumero}</b>  – Para o empréstimo de <b>R$${valor}</b> no <b>${prazo}</b> prazo será cobrado os juros de R$ <b>${valorJur}</b> ao ano <br>`
+            SimulacaoNumero += 1;
         }
+        btnDoVolta.style.display = "block"
     }
 
-    function simule() {
-        TELA1.hidden = true
-                return true
-        
+    function Volte() {
+        show.innerHTML = ""
+        input_valor.value = ""
+        selecioneOperacao.value = ""
+        selecionePrazo.value = ""
+
+        btnDoVolta.style.display = "none"
+        SimulacaoNumero += 1;
     }
-    function Voltar() {
-        TELA1.hidden = false
-                return false
-        TELA2.hidden = true
-        return true           
-          
-    }
-    
 </script>
