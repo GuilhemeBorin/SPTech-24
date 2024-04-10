@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+    <h3>Informe um intervalo crescente de valores numéricos </h3>
+    Informe o valor 1:
+    <input type="number" id="Valor1"><br>
+    Informe o valor 2:
+    <input type="number" id="Valor2"><br>
+
+    <button onclick="Pares()">S2 Pares</button>
+    <br>
+    <div id="show"></div>
+</body>
+</html>
+<script>
+    function Pares() {
+        let inicial = Number(Valor1.value)
+        let final = Number(Valor2.value)
+
+        if(final <= inicial){
+            alert(`O valor final não pode ser menor do que o inicial`)
+        }else{
+            for(let contador = inicial; contador <= final;  contador += 1){
+                if((contador % 2) == 0)
+                show.innerHTML += `${contador}<br>`
+            }
+        }
+    }
+</script>

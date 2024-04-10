@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <button onclick="S2()">S2 Pares</button>
+    <br> 
+    <div id="show"></div>
+</body>
+</html>
+<script>
+    function S2(){
+        for(let contador = 1; contador <= 100; contador += 1){
+            if((contador % 2) == 0){
+                show.innerHTML += `${contador}<br>`
+            }
+        }
+    }
+</script>
