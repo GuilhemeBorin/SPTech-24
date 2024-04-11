@@ -1,0 +1,189 @@
+/*
+#36615f Verde (Mais escuro)
+#77BD1F Cor verde(Mais Claro)
+*/
+
+/* Toda a página fica com margem = 0, e com a fonte estilo poppins */
+* {
+    margin: 0;
+    font-family: 'poppins', sans-serif;
+}
+
+/* Define a cor do que é digitado como branco */
+input{
+    color: #ffffff;
+}
+
+
+/* Detalhes sobre o corpo da página */
+body {
+    background-color: #36615f;
+    background-image: url(fundo.png);
+    background-position: center;  /* Mantem a imagem de fundo no centro da tela */
+    background-size: 100%;  /* Mantém o tamanho da tela em 100% */
+    background-repeat: no-repeat; /* Mantém o background sem repetir a imagem de fundo */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Container que contém todo o conteúdo */
+.containerMae {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Destalhes do titulo "CALCULE SEU PREJUÍZO" */
+.title {
+    font-size: 35px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+/* Detalhes sobre o logo 7Sojas */
+.logo {
+    width: 10vw;
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+}
+
+/* Container geral, contém os outros 2 containers(esquerdo e direito) */
+.containerFilhos {
+    background-color: transparent; 
+    border-radius: 10px;  /* Arredonda a borda em 15px */
+    padding: 20px; /* Distãncia da bordao conteudo dentro */
+    width: 700px;
+    display: flex;
+    color: #ffffff;
+}
+
+/*(container esquerdo) Container das inputs botão*/
+.containerFilho1 {
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 400px; /* Definindo uma largura mínima */
+}
+
+/* (container direito) Container onde aparece a foto(antes de clicar no botão) e a resposta(após clicar no botão)*/
+.containerFilho2 {
+    padding: 20px; /* Distãncia da bordao conteudo dentro */
+    min-width: 340px; /* Definindo uma largura mínima */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Aplica 20px de margem na parte de baixo */
+.conteudo {
+    margin-bottom: 20px;
+}
+
+/* Detalhes sobre as inputs */
+.conteudo input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #36615f; /* Estiliza somente a borda inferior para que fique como uma linha */
+    padding: 10px;
+    font-size: 16px;
+    outline: none; /* Define que não terá borda na input */
+}
+
+/* Detalhes sobre a estilização do botão */
+.button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #15672e;
+    color: white;
+    padding: 10px;    /* Distãncia da borda do botão para o que esta escrito nele */
+    border-radius: 15px;  /* Arredonda a borda em 15px */
+    margin-left: 120px;  /* Cria uma margem do lado esqeurdo de 70px */
+    margin-top: 30px;
+    font-weight: 900; /* Torna a grossura da fonte em bold 900 */
+
+}
+
+.button:hover{
+    background-color: #36615f;
+    transition: all 0.3s;
+}
+
+/* Detalhes sobre as dimensões da imagem no containerFilho2 */
+#imagem {
+    height: 300px;
+    width: 300px;
+}
+
+/* Fução que faz a imagem ficar escondida */
+.hidden {
+    display: none;
+}
+
+/* Função que torna o resultado branco */
+.result{
+    color: #ffffff;
+}
+
+/* estilizando select das bases */
+#select_baseConversao{
+    border-radius: 15px;
+    padding: 5px;
+    padding-right: 195px;
+    margin-top: 7px;
+    font-size: 15px;
+    background-color: transparent;
+    color: gray;
+    border-color: #36615f;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #D0D3D4;
+    border: 1px solid #63666A;
+    text-align: left;
+    display: none;
+}
+
+
+/*---------- CSS POP UP ----------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.containerPopUp {
+    background-color: #d2d0d0;
+    margin: 15% auto;
+    padding: 50px;
+    border: 1px solid #36615f;
+    width: 80%;
+    max-width: 450px;
+    border-radius: 5px;
+}
+
+.close {
+    color: #e10808;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #36615f;
+    text-decoration: none;
+    cursor: pointer;
+}
+

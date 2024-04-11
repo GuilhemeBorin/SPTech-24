@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <div class="containerMae">
+        <h2 class="title">CONVERTION'S <span style="color: #15672e; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: 600;">MACHINE</span></h2>
+        <div class="containerFilhos">
+            <!-- Container principal que guarda o container da esquerda(Inputs e botão) e da direita(Resposta) -->
+            <div class="containerFilho1"> <!-- Container da esquerda, contendo Inputs e botão -->
+
+                <div class="conteudo">
+                    <span style="font-size: 17px;">Informe um número</span>
+                    <input type="text" id="input_valorDesejado" placeholder="Digite o valor desejado">
+                </div>
+
+                <div class="conteudo">
+                    <span style="font-size: 17px;">Selecione a base para a conversão</span>
+                    <select id="select_baseConversao">
+                        <option value="binario">Binário</option> 
+                        <option value="decimal">Decimal</option>
+                        <option value="octal">Octal</option>
+                        <option value="hexadecimal">Hexadecimal</option>
+                    </select>
+                </div>
+
+                <span style="font-size: 17px;">Selecione as bases nas quais gostaria de ver a conversão:</span>
+                <div class="conteudo">
+                    <input style="margin-top: 10px;" id="convertBinario" onclick="aparecer_octal()" type="checkbox">
+                    <label for="convertBinario">Binário</label>
+                    <br>
+                    <input id="convertDecimal" onclick="aparecer_hexa()" type="checkbox">
+                    <label for="convertDecimal">Decimal</label>
+                    <br>
+                    <input id="convertOctal" onclick="aparecer_bin()" type="checkbox">
+                    <label for="convertOctal">Octal</label>
+                    <br>
+                    <input id="convertHexadecimal" onclick="aparecer_bin()" type="checkbox">
+                    <label for="convertHexadecimal">Hexadecimal</label>
+                    <br>
+                    <p id="btn"><button onclick="Converter()" class="button">CONVERTER</button></p>
+                </div>
+            </div>
+            <div class="containerFilho2">
+                <!-- Container da direita, contém a imagem até que o usuário clique no botão, ao clicar, a imagem é oculta e aparece a resposta -->
+                <img src="Binary2.png" id="imagem"> <!-- Imagem antes do usuário clicar no botão -->
+                <div id="show"></div> <!-- div que será puxada pelo innerHTML, para que apareça a resposta -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Div do Pop Up -->
+    <div id="myPopUp" class="modal"> <!-- modal é a classe para Pop Up-->
+        <div class="containerPopUp">
+            <span class="close">&times;</span>
+            <p> <h2>Olá, Bem Vindo(a) a Convertion´s Machine!😄</h2>
+                <br>
+                <span style="font-family: Verdana, Geneva, Tahoma, sans-serif;"> Você já se encontrou atolado(a) em uma montanha de dados, tentando encontrar uma maneira de transformá-los em algo útil e compreensível? </span> <br><br>
+                 <h4>💡 Na Convertion's Machine, simplificamos esse processo para você de forma mais simples e moderna!</h4>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function Converter() {
+        let inputValue = document.getElementById('input_valorDesejado').value;
+        let inputBase = document.getElementById('select_baseConversao').value;
+    
+        let checkBin = convertBinario.checked
+        let checkDec = convertDecimal.checked
+        let checkOct = convertOctal.checked
+        let checkHex = convertHexadecimal.checked
+
+        if (inputValue.trim() === '') {
+        alert('Por favor, preencha os campos.');
+        return;
+        }
+        else if(checkBin == false && checkDec == false  && checkOct == false  && checkHex == false){
+            alert ("Por favor, selecione uma ou mais bases em que deseja visualizar o resultado.")
+                return true; // faz com que a imagem não desapareça após o alert
+        }
+
+        if (!validarEntrada(inputValue, inputBase)) {
+            alert('Por favor, insira um número válido para a base selecionada.');
+            return;
+        }
+    
+        let decimalValue = parseInt(inputValue, inputBase === 'hexadecimal' ? 16 : inputBase === 'octal' ? 8 : inputBase === 'binario' ? 2 : 10);
+        let outputHTML = '';
+
+        if (document.getElementById('convertDecimal').checked) {
+            document.getElementById('show').style.display = 'block';
+            outputHTML += `<p style="font-family: Verdana, Geneva, Tahoma, sans-serif; padding: 15px; background-color: #36615f; margin: 10px; border-radius: 10px; font-size: 15px;">Decimal: ${decimalValue}</p>`;
+        } 
+        if (document.getElementById('convertHexadecimal').checked) {
+            document.getElementById('show').style.display = 'block';
+            outputHTML += `<p style="font-family: Verdana, Geneva, Tahoma, sans-serif; padding: 15px; background-color: #15672e; margin: 10px; border-radius: 10px; font-size: 15px;">Hexadecimal: ${decimalValue.toString(16).toUpperCase()}</p>`;
+        }
+        if (document.getElementById('convertOctal').checked) {
+            document.getElementById('show').style.display = 'block';
+            outputHTML += `<p style="font-family: Verdana, Geneva, Tahoma, sans-serif; padding: 15px; background-color: #36615f; margin: 10px; border-radius: 10px; font-size: 15px;">Octal: ${decimalValue.toString(8)}</p>`;
+        }
+        if (document.getElementById('convertBinario').checked) {
+            document.getElementById('show').style.display = 'block';
+            outputHTML += `<p style="font-family: Verdana, Geneva, Tahoma, sans-serif; padding: 15px; background-color: #15672e; margin: 10px; border-radius: 10px; font-size: 15px;">Binário: ${decimalValue.toString(2)}</p>`;
+        }
+        show.innerHTML = outputHTML;
+          
+
+        function validarEntrada(inputValue, inputBase) {
+
+            var validChars = '';
+
+            if (inputBase === 'decimal') {
+                validChars = '0123456789';
+            } else if (inputBase === 'hexadecimal') {
+                validChars = '0123456789ABCDEFabcdef';
+            } else if (inputBase === 'octal') {
+                validChars = '01234567';
+            } else if (inputBase === 'binario') {
+                validChars = '01';
+            }
+
+            for (var i = 0; i < inputValue.length; i++) {
+                if (validChars.indexOf(inputValue[i]) === -1) {
+                    return false;
+                }
+            }
+            if (imagem.hidden = true) {
+                return true;
+            }
+        }
+
+    }
+
+    // ---------- POP UP ----------
+
+    // Pega o modal
+    var modal = document.getElementById("myPopUp");
+
+    // Pega o botão que fecha o modal
+    var closeBtn = document.getElementsByClassName("close")[0];
+
+    // Mostra o modal quando a página é carregada
+    window.onload = function () {
+        modal.style.display = "block";
+    }
+
+    // Fecha o modal quando o usuário clica no botão de fechar
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // Fecha o modal quando o usuário clica fora dele
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
