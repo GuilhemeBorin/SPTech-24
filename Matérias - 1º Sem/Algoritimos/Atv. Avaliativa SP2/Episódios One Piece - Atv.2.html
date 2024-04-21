@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa</title>
+</head>
+
+<body>
+    Episódio que deseja começar assistindo:
+    <input type="number" id="input_episodio"><br>
+    Quantidade de tempo disponível:
+    <input type="number" id="input_tempo"><br>
+    Unidade de tempo em:
+    <select id="slct_tempo">
+        <option value=""></option>
+        <option value="hour">Horas</option>
+        <option value="minute">Minutos</option>
+    </select><br>
+    Pular abertura?
+    <select id="Abrir">
+        <option value=""></option>
+        <option value="yes">Sim</option>
+        <option value="no">Não</option>
+    </select><br>
+    Pular encerramento?
+    <select id="Fechar">
+        <option value=""></option>
+        <option value="yes">Sim</option>
+        <option value="no">Não</option>
+    </select><br>
+    <button onclick="assistir()">Assistir Episódios</button>
+    <div id="show"></div>
+</body>
+
+</html>
+
+<script>
+    function assistir() {
+        show.innerHTML = "";
+
+        let Episodio = Number(input_episodio.value)
+        let Tempo = Number(input_tempo.value)
+
+        let Abertura = Abrir.value
+        let Encerramento = Fechar.value
+        let TipoTempo = slct_tempo.value
+
+        let mensagem_inicial = Episodio;
+
+        let tempoEpisodio = 22
+
+
+        if (Episodio < 1 || Episodio > 1100) {
+            alert(`O número do episódio é inválido`)
+        } else {
+            if (TipoTempo == 'hour') {
+                Tempo = (Tempo * 60)
+            }
+
+            if (Abertura == 'no' && Encerramento == 'no') { //Não pular ambos
+                tempoEpisodio = 24
+            } else if (Abertura == 'yes' && Encerramento == 'yes') { //Pular ambos
+                tempoEpisodio = 20
+            }
+
+            let statusInfo = Tempo / tempoEpisodio
+            let TempoRestante = Tempo
+
+            for (let contador = 0; contador <= statusInfo; contador++) {
+                show.innerHTML += `<br>Episódio: ${Episodio + contador}<br>`
+
+                for (let contador = 1; contador <= tempoEpisodio; contador++) {
+                    show.innerHTML += `Minuto ${contador}: Assistindo `
+                    if (Abertura == 'no' && contador < 3) {
+                        show.innerHTML += `Abertura<br>`
+                    } else if (Encerramento == 'no' && contador > (tempoEpisodio - 2)) {
+                        show.innerHTML += `Encerramento<br>`
+                    } else {
+                        show.innerHTML += `o Episódio <br>`
+                    }
+                    TempoRestante = TempoRestante - 1
+                    if (TempoRestante <= 0) {
+                        break;
+                    }
+                    if (TempoRestante <= 0) {
+                        break
+                    }
+
+                }
+                show.innerHTML += `<br>Fim dos Episódios! <br> Foram assistidos: ${statusInfo} episódio(s).<br>`;
+            }
+        }
+    }
+
+    // tempo disp < tempo restante = parar de contar      
+    // cada vez que começa vai diminuindo, perde
+
+</script>

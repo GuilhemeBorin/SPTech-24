@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Continuada 1</title>
+</head>
+
+<body>
+    Informe a quantidade de energia consumida em kWh:<br>
+    <input type="number" id="input_EnergiaConsumida"><br>
+    Informe a Bandeira tarifária da energia ("vermelha", "amarela" ou "verde"):<br>
+    <input type="text" id="input_BnadeiraTarifária"><br>
+    Informe o volume de água consumido em litros:<br>
+    <input type="number" id="input_VolumeAguaConsumido"><br>
+    Informe a quantidade de vazamentos de água na casa:<br>
+    <input type="number" id="input_VazamentosAgua"><br>
+    Informe a quantidade de volume de gás consumido em litros:<br>
+    <input type="number" id="input_VolumeGasLitros"><br>
+    Informe a quantidade de MB (megabyte) do plano de internet:<br>
+    <input type="number" id="input_QuantidadeMB"><br>
+    Informe se possui uma linha telefônica vinculada ao plano de internet:("Sim" ou "Não"):<br>
+    <input type="text" id="input_PossuiLinhaTelefonica"><br><br>
+
+    <button onclick="Calcular();">Calcular despesas fixas</button>
+    <div id="show"></div>
+</body>
+
+</html>
+<script>
+    function Calcular() {
+        var qtdEnergiaKWH = Number(input_EnergiaConsumida.value)
+        var bandeiraEnergia = input_BnadeiraTarifária.value
+        var volAguaLitros = Number(input_VolumeAguaConsumido.value)
+        var qtdVazamentos = Number(input_VazamentosAgua.value)
+        var volGas = Number(input_VolumeGasLitros.value)
+        var qtdMB = Number(input_QuantidadeMB.value)
+        var linhaTelefonica = input_PossuiLinhaTelefonica.value
+
+        var valorEnergia
+        var valorAgua = 3.5
+        var valorGas = 2.5
+        
+        var baseqtdMB = qtdMB * 0.8
+
+        var totalEnergia;
+        var totalAgua;
+        var totalGas;
+        var totalInternet; 
+        var totalFinal;
+
+        if (bandeiraEnergia == "verde") {
+            valorEnergia = 0.75
+        }
+        if (bandeiraEnergia == "amarela") {
+            valorEnergia = 0.9
+        }
+        if (bandeiraEnergia == "vermelha") {
+            valorEnergia = 1.0
+        }
+        if (qtdEnergiaKWH < 50) {
+            valorEnergia = valorEnergia * 0.9
+        }
+
+        totalEnergia = qtdEnergiaKWH * valorEnergia; 
+        totalAgua = (volAguaLitros * valorAgua) + (qtdVazamentos * 10)
+        totalGas = volGas * valorGas
+
+        if (linhaTelefonica == "sim") {
+            totalInternet = baseqtdMB + (baseqtdMB * 0.25) //acréscimo de 25% ao valor base da conta de internet. 
+        } else {
+            totalInternet = baseqtdMB - (baseqtdMB * 0.075) // desconto de 7.5% do valor base da conta de internet.
+        }
+
+        totalFinal = totalEnergia + totalAgua + totalGas + totalInternet
+
+        show.innerHTML = 
+        `
+        Com o consumo de <b>${qtdEnergiaKWH}</b> kWh na bandeira <b>${bandeiraEnergia}</b>, a conta de energia totaliza R$<b>${totalEnergia}</b>.
+        <br> 
+        Com o consumo de <b>${volAguaLitros}</b> litros de água contendo <b>${qtdVazamentos}</b> vazamentos, a conta de água totaliza R$ <b>${totalAgua}</b>. 
+        <br> 
+        Com o consumo de <b>${volGas}</b> litros de gás, a conta de gás totaliza R$<b>${totalGas}</b>. 
+        <br> 
+        Com o consumo de <b>${baseqtdMB}</b> MB de internet, o valor do plano de internet/telefone totaliza R$ <b>${totalInternet}</b>. 
+        Gasto total de despesas mensal: R$ <b>${totalFinal}</b>.
+        `
+    }
+</script>

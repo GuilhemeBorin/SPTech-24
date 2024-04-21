@@ -1,23 +1,24 @@
--- primeiros comandos - continuação
+-- ETAPA 1
+-- Primeiros Comandos - continuação
 -- criar database
--- Etapa 1
+
 create database sprint1;
+
+-- ETAPA 2
 -- colocar o database em uso
--- Etapa 2
 use sprint1;
-/*
-criar a tabela de empresa 
-onde o auto increment inicie a partir de 100
-*/
--- Etapa 3  -  NOT NULL
+
+-- ETAPA 3  -  NOT NULL
+-- criar a tabela de empresa  onde o auto increment inicie a partir de 100
 CREATE TABLE empresa (    
      id              INT auto_increment,    
      nome            VARCHAR(40) not null,
      representante   varchar(40),
      primary key chave(id)
 ) auto_increment=100;  -- parametro opcional, se não informado inicia em 1
+
+-- ETAPA 4
 -- inserir dados na tabela empresa
--- Etapa 4
 insert into empresa (nome, representante) 
 values ('Tivit', 'João'),
 	   ('Accenture', 'José'),
@@ -33,17 +34,15 @@ alter table empresa add primary key(id);
 select * from empresa;
 
 alter table empresa modify id int auto_increment primary key;
--- Etapa 5
+
+-- ETAPA 5
 -- inserir uma nova empresa sem o nome da empresa
--- Etapa 4
 insert into empresa (nome, representante) 
 values (null, 'Joaozinho');
-/*
 
-Error Code: 1048. Column 'nome' cannot be null
+-- Error Code: 1048. Column 'nome' cannot be null
 
-*/
--- ETAPA 5
+-- ETAPA 6
 -- criar indice em uma tabela nova -- PRIMARY KEY e INDICE
 CREATE TABLE curso (
   id int NOT NULL AUTO_INCREMENT,
@@ -52,19 +51,20 @@ CREATE TABLE curso (
   PRIMARY KEY (id),
   KEY ix_curso (sigla)
 );
--- Etapa 4
+
+-- ETAPA 7
 insert into curso (sigla, nome)
 values ('ADS', 'Análise Desenvolvimento de Sistemas'),
        ('SIS', 'Sistema da Informação'),
        ('CCO', 'Ciência da Computação');   
---       
+      
 insert into curso (sigla, nome)
 values ('ADS', 'Administração de Dados e Segurança');       
-       
+	
 -- verificar o funcionamento do indice
-explain
+explain 
 select * from curso where sigla = 'CCO';
---
+
 -- apagar indice
 drop index ix_curso on curso;
 -- verificar o funcionamento do indice
@@ -76,11 +76,12 @@ create index ix_curso on curso(sigla);
 
 -- indice em mais de uma coluna
 create index ix_curso_01 on curso(sigla, nome);
+
 -- apagar a tabela curso
 drop table curso;
--- ETAPA 6 -- 	INDICE UNICO
--- criar indice unico ou alternate key em uma tabela nova
 
+-- ETAPA 6 -- INDICE UNICO
+-- criar indice unico ou alternate key em uma tabela nova
 CREATE TABLE curso (
   id int NOT NULL AUTO_INCREMENT,
   sigla varchar(10) NOT NULL,
@@ -88,19 +89,19 @@ CREATE TABLE curso (
   PRIMARY KEY (id),
   UNIQUE ix_curso (sigla)
 );	
+
 -- incluir cursos
 insert into curso (sigla, nome)
 values ('ADS', 'Análise Desenvolvimento de Sistemas'),
        ('SIS', 'Sistema da Informação'),
-       ('CCO', 'Ciência da Computação');  
+       ('CCO', 'Ciência da Computação'); 
+       
 -- exibir erro de unique       
 insert into curso (sigla, nome)
 values ('ADS', 'Administração de Dados e Segurança');
-/*
 
-Error Code: 1062. Duplicate entry 'ADS' for key 'curso.ix_curso'
+-- Error Code: 1062. Duplicate entry 'ADS' for key 'curso.ix_curso'
 
-*/
 -- apagar indice
 drop index ix_curso on curso;
 
@@ -127,16 +128,19 @@ values ('01241221', 'AMANDA'),
 		('01241228', 'GUILHERME'),
 		('01241229', 'PAULO'),
 		('01241230', 'PEDRO');
+        
 -- verificar o resultado
 select * from aluno;
+
 -- alterar situação
 update aluno set situacao = 'Não Sei' where ra = '01241226';
---
+
 alter table aluno alter situacao drop default;
 
 alter table aluno alter situacao set default 'Ativo';
--- 
+
 drop table aluno;
+
 -- CHECK CONSTRAINT
 CREATE TABLE aluno (
   ra char(08) NOT NULL,
@@ -145,7 +149,8 @@ CREATE TABLE aluno (
   PRIMARY KEY (ra),
   constraint ck_situacao check(situacao in('Ativo', 'Inativo'))
 );
---
+
+
 insert into aluno(ra, nome)
 values ('01241221', 'AMANDA'),
 		('01241222', 'ANA CLAUDIA'),
@@ -157,16 +162,14 @@ values ('01241221', 'AMANDA'),
 		('01241228', 'GUILHERME'),
 		('01241229', 'PAULO'),
 		('01241230', 'PEDRO');
---
+
 select * from aluno;    
---
+
 -- alterar situação
 update aluno set situacao = 'Não Sei' where ra = '01241226';
-/*
 
-Error Code: 3819. Check constraint 'ck_situacao' is violated.
-
-*/    
+-- Error Code: 3819. Check constraint 'ck_situacao' is violated.
+   
 -- apagar a constraint check
 alter table aluno drop constraint ck_situacao;
 
@@ -178,6 +181,7 @@ update aluno set situacao = 'Não Sei' where ra = '01241226';
 
 -- foreing key
 drop table aluno;
+
 -- FK
 CREATE TABLE aluno (
   ra char(08) NOT NULL,
@@ -192,7 +196,7 @@ CREATE TABLE aluno (
   constraint fk_aluno_curso foreign key(fkcurso) references curso(id),  
   constraint ck_situacao check(situacao in('Ativo','Inativo','Suspenso'))
 );
--- 
+
 insert into aluno(ra, nome, fkempresa, fkcurso)
 values ('01241221', 'AMANDA', 100, 1),
 		('01241222', 'ANA CLAUDIA', 100, 1),
@@ -207,12 +211,11 @@ values ('01241221', 'AMANDA', 100, 1),
 
 select * from aluno;
 -- empresa não existente
+
 insert into aluno(ra, nome, fkempresa, fkcurso)
 values ('01241240', 'AMANDA', 120, 1);
 /*
-
 Error Code: 1452. Cannot add or update a child row: a 
 foreign key constraint fails (`sprint1`.`aluno`, 
 CONSTRAINT `fk_aluno_empresa` FOREIGN KEY (`fkempresa`) REFERENCES `empresa` (`id`))
-
 */
