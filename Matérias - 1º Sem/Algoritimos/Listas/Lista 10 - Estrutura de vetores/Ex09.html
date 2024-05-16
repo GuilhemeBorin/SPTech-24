@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    Informe o nome de cada projeto que já criou na vida: <br>
+    <input type="text" id="input_projeto"><br>
+    <button onclick="registrar()">Registrar projeto</button>
+    <button onclick="mostrar()">Mostrar Projetos</button>
+    <div id="show"></div>
+</body>
+</html>
+<script>
+    let listaProjeto = []
+
+    function registrar() {
+        let projeto = input_projeto.value
+        listaProjeto.push(projeto)
+        
+        let nivel = "Pleno"
+        if(listaProjeto.length < 5){
+             nivel = "Júnior"
+        }else if(listaProjeto.length > 12){
+             nivel = "Sênior"
+        }
+        for(let numProjeto = 0; numProjeto < listaProjeto.length; numProjeto += 1){
+            show.innerHTML = `Você já fez ${listaProjeto.length} projetos. Por isso você é um profissional ${nivel}<br>`
+        }
+    }
+
+    function mostrar() {
+        show.innerHTML = ""
+
+        for(let numProjeto = listaProjeto.length; numProjeto > 0 ; numProjeto -= 1){
+            show.innerHTML += `${listaProjeto[numProjeto-1]}<br>`
+        }    
+    }
+</script>

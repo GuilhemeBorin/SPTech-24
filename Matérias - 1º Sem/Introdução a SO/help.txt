@@ -1,0 +1,176 @@
+1)Ao executar um comando de criação de usuário, você recebe uma mensagem de permissão negada.
+	urubu100@MarcioSantana:~$ adduser sptech
+	adduser: Only root may add a user or group to the system.
+	urubu100@MarcioSantana:~$ _
+
+Escreva abaixo qual o comando que podemos utilizar para executar algum comando como administrador do sistema.
+
+R: sudo adduser sptech
+
+----------------------------------------
+2) Considere três processos, todos chegando no tempo zero, com tempo total de execução de 20,30 e 40 unidades, respectivamente.
+O primeiro processo gasta 4 unidades iniciais e 2 finais em E/S.
+O segundo processo gasta 6 unidades iniciais e 4 finais em E/S.
+O terceiro processo gasta 8 unidades iniciais e 6 finais em E/S.
+O sistema operacional usa o algoritmo de planejamento de tempo restante da computação restante mais curto e programa um novo processo quando o processo em execução é bloqueado nba E / S ou quando o processo em execução termina sua intermitência de computação.
+Suponha que todas as operações de E / S possam ser sobrepostas o máximo possível. Por qual porcentagem de tempo a CPU permanece ociosa?
+
+R: 
+Para calcular a porcentagem de tempo que a CPU permanece ociosa, precisamos primeiro entender como os processos serão executados usando o algoritmo de tempo restante da computação restante mais curto.
+
+Vamos considerar a execução dos processos:
+
+Processo 1: Tempo total de execução = 20 unidades, 4 unidades iniciais e 2 finais em E/S.
+Processo 2: Tempo total de execução = 30 unidades, 6 unidades iniciais e 4 finais em E/S.
+Processo 3: Tempo total de execução = 40 unidades, 8 unidades iniciais e 6 finais em E/S.
+Inicialmente, todos os processos chegam na fila de prontos. Vamos considerar que o tempo inicial é 0 e as operações de E/S podem ser sobrepostas o máximo possível.
+
+Agora, vamos calcular o tempo total de CPU e o tempo total ocioso:
+
+Tempo total de CPU: Somamos os tempos de execução dos processos.
+
+Tempo total de CPU = 20 + 30 + 40 = 90 unidades.
+
+Tempo total ocioso da CPU: Para calcular o tempo ocioso, precisamos considerar os intervalos em que a CPU está esperando por operações de E/S e quando nenhum processo está pronto para ser executado.
+
+Para o processo 1:
+
+Início do processo 1: tempo 0
+Fim da CPU (para E/S): tempo 4
+Retorno do processo 1: tempo 6
+Para o processo 2:
+
+Início do processo 2: tempo 6
+Fim da CPU (para E/S): tempo 10
+Retorno do processo 2: tempo 16
+Para o processo 3:
+
+Início do processo 3: tempo 16
+Fim da CPU (para E/S): tempo 24
+Retorno do processo 3: tempo 30
+Como o processo 3 termina em 30 unidades, não há ociosidade após isso.
+
+Portanto, o tempo total ocioso da CPU é a diferença entre o tempo total de CPU e o tempo de execução dos processos:
+
+Tempo total ocioso da CPU = 90 - 30 = 60 unidades.
+
+Finalmente, para calcular a porcentagem de tempo ocioso da CPU em relação ao tempo total:
+
+Porcentagem de tempo ocioso
+=
+Tempo total ocioso da CPU
+Tempo total de CPU
+×
+100
+%
+Porcentagem de tempo ocioso = Tempo total de CPU
+                              -------------------       ×100%
+                            Tempo total ocioso da CPU
+​
+
+Porcentagem de tempo ocioso = 60          2
+                              -- x100% = --- x100% = 66.67%
+                              90          3
+
+​
+Portanto, a CPU permanece ociosa cerca de 66,67% do tempo. Isso ocorre principalmente devido ao tempo em que a CPU está esperando operações de E/S.
+
+
+----------------------------------------
+3)Execute o comando "top" e analise o resultado para responder a questão abaixo
+
+Sobre o comando top, é correto afirmar que:
+
+I.   Apresenta todos os processos do cliente Linux.
+II.  Coletar todas as informações de hardware.
+III. Mostra todos os usuários do cliente Linux.
+IV.  Atualiza os consumos e estados de todos os processos do cliente Linux.
+
+Escolha a opção correta
+
+A. I e II
+B. Apenas IV
+C. I, III e IV
+D. I e IV
+E. Todas as afirmativas são validas
+
+R: D. I e IV
+
+
+----------------------------------------
+4)Como responsável pela gestão dos servidores Linux, você recebe uma solicitação para criação de um novo usuário no SP.
+Execute o comando para criação de usuário, e selecione a sequência correta desse processo:
+
+1ºPasso:
+2ºPasso:
+3ºPasso:
+4ºPasso:
+5ºPasso:
+6ºPasso:
+7ºPasso:
+8ºPasso:
+9ºPasso:
+10ºPasso:
+
+
+
+R:
+	1º Passo: Abra um terminal ou uma sessão de linha de comando no servidor.
+	2º Passo: Execute o comando sudo adduser nome_do_usuário, onde "nome_do_usuário" é o nome que você deseja atribuir ao novo usuário.
+	3º Passo: Pressione Enter após digitar o comando acima.
+	4º Passo: Você será solicitado a inserir uma senha para o novo usuário. Insira a senha desejada e pressione Enter.
+	5º Passo: Em seguida, será solicitado a confirmar a senha. Digite a senha novamente e pressione Enter.
+	6º Passo: Você será solicitado a fornecer informações adicionais sobre o novo usuário, como nome real, número de telefone, etc. Isso é opcional e pode ser deixado em branco pressionando Enter para aceitar os valores padrão.
+	7º Passo: Confirme se as informações inseridas estão corretas. Se estiverem corretas, pressione Enter para confirmar.
+	8º Passo: O sistema irá criar o novo usuário e fornecerá uma confirmação.
+	9º Passo: Se necessário, você pode atribuir permissões adicionais ao novo usuário usando comandos como sudo usermod -aG grupo nome_do_usuário, onde "grupo" é o nome do grupo ao qual deseja adicionar o usuário.
+	10º Passo: Saia do terminal ou da sessão de linha de comando.
+
+
+----------------------------------------
+5)Analise o resultado de alguns comandos executados no Linux e responda no capo reservado, qual foi o comando executado que apresentou esse resultado:
+
+R: df
+
+----------------------------------------
+6)Analise a Imagem abaixo e preencha os campos vazios com a opção correspondente.
+
+O usuário especializado esta usando a camada (   ) do sistema operacional, através da ferramenta (   ) do windows. Onde os (   ) são enviados para execução na camada (   ) do sistema operacional. O usuário especializado criou um item do modo (   ) através do command-let (   ). Acessou o (   ) através do comando (   ) e criou um item do modo (   ) utilizando (   ). Para finalizar listou o conteúdo do dire´torio (   ) com o command-let (   ).
+
+R:
+SHELL
+POWERSHELL
+COMANDOS
+KERNEL
+DIRETÓRIO
+New-item
+DIRETÓRIO
+cd
+ARQUIVO
+New-Item
+PROVAS
+dir
+
+
+----------------------------------------
+7) Marque 3 comandos Linux que apresentam informações sobre o hardware em Linux.
+OBS: Uma resposta errada anula uma correta
+A. rm
+B. passwd
+C. lscpu
+D. df memory
+E. top
+F. dir
+G. mkdir
+H. filessystem
+I. lshw
+J. ping
+K. df disk
+L. top disk
+
+R: 
+C. lscpu
+E. top
+I. lshw
+
+

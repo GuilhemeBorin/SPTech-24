@@ -1,0 +1,22 @@
+tirando o fato de ser uma VM, qual a vantagem para o cliente em subir uma máquina linux?
+
+a vantagem é associoada diretamente ao custo, a facilidade em trabalhar com a mesma, tanto para quem usa, quanto para quem aplica.
+
+caso aconteça algo como perder senha, ou bug, basta derrubar a máquina e criar outra, as informações ali armazenadas estarão em um disco, dos quais não serão derrubados com a máquina virtual.
+
+
+---------------
+root e sudo 
+em termos administrativos fazem a mesma coisa, em termos de criaçao
+root é o primeiro a ser criado.
+ROOT só pode haver um no pc.
+SUDO podem haver mais.
+
+----------
+cat /etc/passwd
+concatena as informações do arquivo e gospe no terminal
+
+
+----------
+qual a importancia
+
